@@ -33,8 +33,8 @@ module.exports = function(opts) {
 
     options.label    = opts && opts.label    ? opts.label    : 'root';
     options.callback = opts && opts.callback ? opts.callback : function(res){console.log(res)};
-    options.prefix   = opts && opts.prefix ? opts.prefix : '';
-
+    options.prefix   = opts && opts.prefix   ? opts.prefix : '';
+    options.opts     = opts && opts.opts     ? opts.opts : { unicode : true };
     return through(
         {
             objectMode: true,
@@ -52,7 +52,7 @@ module.exports = function(opts) {
         },
         function (cb) {
             var archytree = getArchTree(tree[options.label], {}, options.label),
-                result = archy(archytree, options.prefix || '', options.opts || {});
+                result = archy(archytree, options.prefix, options.opts);
             options.callback(result);
             cb();
         }
