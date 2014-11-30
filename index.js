@@ -31,8 +31,9 @@ module.exports = function(opts) {
             return dst;
         };
 
-    options.label   = opts && opts.label    ? opts.label    : 'root';
-    options.callback= opts && opts.callback ? opts.callback : function(res){console.log(res)};
+    options.label    = opts && opts.label    ? opts.label    : 'root';
+    options.callback = opts && opts.callback ? opts.callback : function(res){console.log(res)};
+    options.prefix   = opts && opts.prefix ? opts.prefix : '';
 
     return through(
         {
