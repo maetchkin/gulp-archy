@@ -2,11 +2,13 @@
 'use strict';
 
 var through = require('through2'),
+    path = require('path'),
     archy = require('archy');
 
-var garchy = function(options) {
-    var tree = {},
-        label = options.label || 'root',
+module.exports = function(opts) {
+
+    var tree    = {},
+        options = {},
         add = function(path){
             var arr = path.split("/"),
                 i = 0,
@@ -29,6 +31,9 @@ var garchy = function(options) {
             return dst;
         };
 
+    options.label   = opts.label    || 'root';
+    options.callback= opts.callback || function(res){console.log(res)};
+
     return through(
         {
             objectMode: true,
@@ -36,20 +41,19 @@ var garchy = function(options) {
         },
         function (file, enc, cb) {
             this.push(file);
-            add(file.path.replace(process.cwd(),label));
+            add(
+                path.join(
+                    options.label,
+                    file.path.replace(process.cwd(),'')
+                )
+            );
             cb();
         },
         function (cb) {
-            var archytree = getArchTree(tree[label], {}, label),
+            var archytree = getArchTree(tree[options.label], {}, options.label),
                 result = archy(archytree, options.prefix || '', options.opts || {});
-            if(options.callback){
-                options.callback(result, cb);
-            } else {
-                console.log(result);
-                cb();
-            }
+            options.callback(result);
+            cb();
         }
     );
 };
-
-module.exports = garchy;
