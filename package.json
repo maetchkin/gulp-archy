@@ -1,0 +1,37 @@
+{
+  "name": "gulp-archy",
+  "version": "1.0.0",
+  "description": "render buffered files structure with archy",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:maetchkin/gulp-archy.git"
+  },
+  "keywords": [
+    "gulp",
+    "hierarchy",
+    "npm",
+    "ls",
+    "unicode",
+    "pretty",
+    "print",
+    "treeview",
+    "debug"
+  ],
+  "author": "Anton Kirshanov <maetchkin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maetchkin/gulp-archy/issues"
+  },
+  "homepage": "https://github.com/maetchkin/gulp-archy",
+  "dependencies": {
+    "archy": "^1.0.0",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
