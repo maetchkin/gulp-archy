@@ -8,8 +8,15 @@ gulp.task(
     function(cb) {
         return gulp
             .src(
-                ['**/index.js'],
+                ['test/**/*'],
                 {base: process.cwd()}
+            )
+
+            .on(
+                'data',
+                function(file){
+                    console.log( file.path.replace(process.cwd()+'/','') );
+                }
             )
             .pipe(
                 garchy(
@@ -17,6 +24,7 @@ gulp.task(
                         options: 'options'
                     }
                 )
-            );
+            )
+            ;
     }
 );
