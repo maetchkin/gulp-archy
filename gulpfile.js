@@ -1,6 +1,6 @@
 'use strict';
 
-var garchy = require('./index.js'),
+var archy = require('./index.js'),
     gulp   = require('gulp');
 
 gulp.task(
@@ -11,20 +11,8 @@ gulp.task(
                 ['test/**/*'],
                 {base: process.cwd()}
             )
-
-            .on(
-                'data',
-                function(file){
-                    console.log( file.path.replace(process.cwd()+'/','') );
-                }
-            )
             .pipe(
-                garchy(
-                    {
-                        options: 'options'
-                    }
-                )
-            )
-            ;
+                archy()
+            );
     }
 );
