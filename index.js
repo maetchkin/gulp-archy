@@ -41,14 +41,15 @@ module.exports = function(opts) {
             allowHalfOpen: false
         },
         function (file, enc, cb) {
-            this.push(file);
+            if (file.isNull()) {}
             add(
                 path.join(
                     options.label,
                     file.path.replace(process.cwd(),'')
                 )
             );
-            cb();
+            this.push(file);
+            return cb();
         },
         function (cb) {
             var archytree = getArchTree(tree[options.label], {}, options.label),

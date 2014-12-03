@@ -1,5 +1,6 @@
 gulp-archy
 ==========
+[![NPM](https://nodei.co/npm/gulp-archy.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-archy/)
 
 Gulp plugin to pretty print files list inside gulp stream in a tree-structure for better debug
 
@@ -77,4 +78,6 @@ Options
 License
 ---
 [MIT](https://github.com/maetchkin/gulp-archy/blob/master/LICENSE)
+Copyright (c) 2014-2015 Yandex, LLC. http://yandex.com
+Copyright (c) 2014-2015 Anton Kirshanov, maetchkin@yandex.ru
 

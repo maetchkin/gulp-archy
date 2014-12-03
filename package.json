@@ -1,7 +1,7 @@
 {
   "name": "gulp-archy",
-  "version": "1.0.2",
-  "description": "render buffered files structure with archy",
+  "version": "1.0.3",
+  "description": "Render a buffered files structures with archy",
   "main": "index.js",
   "scripts": {
     "test": "gulp"
@@ -19,7 +19,8 @@
     "pretty",
     "print",
     "treeview",
-    "debug"
+    "debug",
+    "archy"
   ],
   "author": "Anton Kirshanov <maetchkin@gmail.com>",
   "license": "MIT",
